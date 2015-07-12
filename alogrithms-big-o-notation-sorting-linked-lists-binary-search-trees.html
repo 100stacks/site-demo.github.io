@@ -1,11 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="UTF-8" />
 	<title>Notes + Blog</title>
+	<style type="text/css">
+		pre {
+			border-style: double;
+			background-color: #CCC;
+			margin: 10px;
+		}
+
+	</style>
 </head>
 <body>
 	<h1>Notes + Blog</h1>
 	<h3>Writings about algorithms, Big(O) Notation, and generally anything that is of interest at the monment.</h3>
 	<p>I will write about different topics that I come across during interviews, that others may find useful.</p>
+
+	<pre>
+		function binarySearchNonRecursive (arrayA, N, X) {
+
+		'use strict';
+
+		var low = 0,
+		    high = N - 1,
+		    mid;
+
+		    while (low < high) 
+		    {
+		    	var mid = low + (high - low)/2;  		// (low + high) may overflow if both numbrs are near max int for the system
+
+		    	if (X === arrayA[mid]) {
+		    		return mid;				// Found X
+		    	}
+
+		    	if (X < arrayA[mid]) {
+		    		high = --mid;				// X lies before mid
+		    	} else {
+		    		low = ++mid;				// X lies after mid
+		    	}
+
+		    }
+
+		    return false;
+		}
+	</pre>
 </body>
 </html>
