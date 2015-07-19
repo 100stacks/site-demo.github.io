@@ -48,5 +48,73 @@
 		}
 		
 	</pre>
+
+	<h1>Sieve of Eratosthenes</h1>
+	<h3>Find all PRIME numbers within a range of <i>2</i> ... <i>n</i></h3>
+	<pre>
+	<h1>Sieve of Eratosthenes | Prime Factorization</h1>
+	<h3>How to find out prime factorization of a number</h3>
+	<h3>Find all PRIME numbers within a range of <i>2</i> ... <i>n</i></h3>
+
+
+	function primeFactorizationCheck ( num ) {
+
+		'use strict';
+
+		// check edge cases 
+		if ( isNaN(num) ) {
+			console.log(num + ' is NOT A NUMBER/VALUE');
+			return false;
+		}
+
+		if ( !isFinite(num) ) {
+			console.log(num + ' is NOT a FINITE legal number on this system');
+			return false;
+		}
+
+		if ( (num < 1) || (num === 1) ) {
+			console.log(num + ' is NOT PRIME');
+			return false;
+		}
+
+		if ( (num % 1 !== 0 ) ) {
+			console.log(num + ' is NOT an integer');
+			return false;
+		}
+
+		// Check for all Prime Factors of num
+
+		console.log('Check for all PRIME FACTORS of  ' + num );
+
+		//var primeRange = Math.sqrt(num);   // num gets refactored, so this won't save us any time
+		var count;
+
+		for (var i=2; i <= Math.sqrt(num); i++ ) {
+			if ( num % i === 0 ) {
+				console.log( i + ' is a factor of ' + num + '...now check frequency');
+
+				count = 0;
+
+					while ( num %  i  ===  0 ) {
+						num = num / i;
+						count++;
+					}
+
+				console.log(i + ' , ' + count);	
+
+			}
+		}
+
+		if ( num !== 1 ) {
+			console.log( num + ' , 1');
+
+		}
+
+		return true;
+
+	}
+
+
+	</pre>
 </body>
 </html>
